@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Boxes</title>
+    <style>
+        /* Body and page layout */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Container for the boxes */
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* General box styles */
+        .box {
+            width: 100%;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            padding: 20px;
+            padding-bottom: 10px;
+        }
+
+        .box:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Box content (hidden initially) */
+        .box-content {
+            display: none;
+            margin-top: 20px;
+        }
+
+        /* Show box content when box is clicked (open state) */
+        .box.open .box-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Heading style inside each box */
+        .box h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Option styles (color and size) */
+        .option {
+            margin: 15px 0;
+        }
+
+        /* Color option buttons */
+        .color-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .color-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .color-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .size-picker {
+            width: 100%;
+            max-width: 200px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .option label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        /* Transition for expanding the box */
+        .box.open {
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Box 1 -->
+        <div class="box" id="box1">
+            <h3>Box 1</h3>
+            <div class="box-content">
+                <div class="option">
+                    <label for="colors1">Select Color:</label>
+                    <div class="color-options" id="colors1">
+                        <button class="color-btn" style="background-color: #ff6347;" data-color="#ff6347"></button>
+                        <button class="color-btn" style="background-color: #4682b4;" data-color="#4682b4"></button>
+                        <button class="color-btn" style="background-color: #32cd32;" data-color="#32cd32"></button>
+                        <button class="color-btn" style="background-color: #ffeb3b;" data-color="#ffeb3b"></button>
+                    </div>
+                </div>
+                <div class="option">
+                    <label for="size1">Select Size:</label>
+                    <select id="size1" class="size-picker">
+                        <option value="100px">Small</option>
+                        <option value="200px">Medium</option>
+                        <option value="300px">Large</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Box 2 -->
+        <div class="box" id="box2">
+            <h3>Box 2</h3>
+            <div class="box-content">
+                <div class="option">
+                    <label for="colors2">Select Color:</label>
+                    <div class="color-options" id="colors2">
+                        <button class="color-btn" style="background-color: #ff6347;" data-color="#ff6347"></button>
+                        <button class="color-btn" style="background-color: #4682b4;" data-color="#4682b4"></button>
+                        <button class="color-btn" style="background-color: #32cd32;" data-color="#32cd32"></button>
+                        <button class="color-btn" style="background-color: #ffeb3b;" data-color="#ffeb3b"></button>
+                    </div>
+                </div>
+                <div class="option">
+                    <label for="size2">Select Size:</label>
+                    <select id="size2" class="size-picker">
+                        <option value="100px">Small</option>
+                        <option value="200px">Medium</option>
+                        <option value="300px">Large</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="box" id="box3">
+            <h3>Box 3</h3>
+            <div class="box-content">
+                <div class="option">
+                    <label for="colors3">Select Color:</label>
+                    <div class="color-options" id="colors3">
+                        <button class="color-btn" style="background-color: #ff6347;" data-color="#ff6347"></button>
+                        <button class="color-btn" style="background-color: #4682b4;" data-color="#4682b4"></button>
+                        <button class="color-btn" style="background-color: #32cd32;" data-color="#32cd32"></button>
+                        <button class="color-btn" style="background-color: #ffeb3b;" data-color="#ffeb3b"></button>
+                    </div>
+                </div>
+                <div class="option">
+                    <label for="size3">Select Size:</label>
+                    <select id="size3" class="size-picker">
+                        <option value="100px">Small</option>
+                        <option value="200px">Medium</option>
+                        <option value="300px">Large</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for interaction -->
+    <script>
+        // Function to toggle the box open/close state and reset colors
+        function toggleBox(boxId) {
+            const boxes = document.querySelectorAll('.box');
+            const boxToToggle = document.getElementById(boxId);
+            // Close all boxes and reset their colors
+            boxes.forEach(box => {
+                if (box !== boxToToggle) {
+                    box.classList.remove('open');
+                    box.style.backgroundColor = '#ffffff'; // Reset color to white
+                }
+            });
+            // Toggle the clicked box's open/close state
+            boxToToggle.classList.toggle('open');
+        }
+
+        // Event listeners to toggle box content visibility when clicked
+        document.getElementById('box1').addEventListener('click', (e) => {
+            if (!e.target.closest('.box-content')) {
+                toggleBox('box1');
+            }
+        });
+        document.getElementById('box2').addEventListener('click', (e) => {
+            if (!e.target.closest('.box-content')) {
+                toggleBox('box2');
+            }
+        });
+        document.getElementById('box3').addEventListener('click', (e) => {
+            if (!e.target.closest('.box-content')) {
+                toggleBox('box3');
+            }
+        });
+
+        // Prevent box closing when interacting with the color or size input fields
+        document.querySelectorAll('.color-btn, .size-picker').forEach(input => {
+            input.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent the event from bubbling up to the box click
+            });
+        });
+
+        // Color button interactions for each box
+        document.querySelectorAll('.color-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const color = this.getAttribute('data-color');
+                const boxId = this.closest('.box').id;
+                document.getElementById(boxId).style.backgroundColor = color;
+            });
+        });
+
+        // Size selection for each box
+        document.getElementById('size1').addEventListener('change', function () {
+            document.getElementById('box1').style.width = this.value;
+        });
+
+        document.getElementById('size2').addEventListener('change', function () {
+            document.getElementById('box2').style.width = this.value;
+        });
+
+        document.getElementById('size3').addEventListener('change', function () {
+            document.getElementById('box3').style.width = this.value;
+        });
+    </script>
+
+</body>
+
+</html>
